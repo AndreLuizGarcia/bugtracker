@@ -1,0 +1,70 @@
+<html>
+  <head>
+    <title>BugTracker</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script>
+      //navegador + relogio
+      document.onreadystatechange = () => {
+        if(document.readyState === 'interactive') {
+          document.getElementById('userAgent').value = window.navigator.userAgent
+          document.getElementById('userDate').value = new Date()
+          console.log('Olá', window.navigator.userAgent)
+          console.log('Hora: ' + new Date())
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <nav class="navbar navbar-light bg-light">
+      <a class="navbar-brand" href="/">BugTracker</a>
+    </nav>
+    <div class="container">
+      <h1>Ferramenta de relato de Bugs</h1>
+      <p>Preencha todos os dados a seguir:</p>
+
+      <form method="POST">
+
+        <div class="form-group">
+          <label for="name">Nome:</label>
+          <input class="form-control" type="text" id="name" name="name" />
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email:</label>
+          <input class="form-control" type="text" id="email" name="email" />
+        </div>
+
+        <div class="form-group">
+          <label for="issueType">Classificação:</label>
+          <select class="form-control" type="issueType" id="issueType" name="issueType">
+              <option value="">Selecione</option>
+            <option value="CRITICAL">Critica</option>
+            <option value="BUG">Falha</option>
+            <option value="ENHANCEMENT">Melhoria</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="howToReproduce">Como reproduzir o erro?</label>
+          <input class="form-control" type="text" id="howToReproduce" name="howToReproduce" />
+        </div>
+
+        <div class="form-group">
+          <label for="expectedOutput">A saída esperada?</label>
+          <textarea class="form-control" type="text" id="expectedOutput" name="expectedOutput"></textarea>
+        </div>
+        
+        <div class="form-group">
+          <label for="receiveOutput">A saída recebida?</label>
+          <textarea class="form-control" type="text" id="receiveOutput" name="receiveOutput"></textarea>
+        </div>
+
+        <input type="hidden" id="userAgent" name="userAgent" />
+
+        <input type="hidden" id="userDate" name="userDate" />
+
+        <button class="btn btn-primary">Enviar solicitação!</button>
+      </form>
+    </div>
+  </body>
+</html>
